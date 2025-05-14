@@ -5,8 +5,8 @@ var title = "";
 var url = "";
 
 export const handler: Handlers = {
-  async POST(req, _ctx) {
-    const form = await req.formData();
+  async POST(ctx) {
+    const form = await ctx.req.formData();
     title = form.get("title");
     url = form.get("url");
 
