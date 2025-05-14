@@ -2,7 +2,7 @@ import { defineRoute, Handlers } from "$fresh/server.ts";
 
 var title = "";
 var url = "";
-
+/*
 export const handler: Handlers = {
   async POST(req, _ctx) {
     const form = await req.formData();
@@ -12,7 +12,7 @@ export const handler: Handlers = {
     return Response.json({title, url});
   },
 };
-
+*/
 const SUBMIT_STYLES =
   "w-full text-white text-center rounded-[7px] transition duration-300 px-4 py-2 block hover:bg-white hover:text-black hover:dark:bg-gray-900 hover:dark:!text-white";
 
