@@ -16,5 +16,9 @@
   },
   "css.customData": [
     ".vscode/tailwind.json"
-  ]
+  ],
+  "files.exclude": {
+    "**/.git*": true,
+    "**/.vscode": true,
+  }
 }
