@@ -1,5 +1,6 @@
 import { defineRoute, Handlers } from "fresh/compat";
 
+const kv = await Deno.openKv();
 
 var title = "";
 var url = "";
@@ -10,6 +11,13 @@ export const handler: Handlers = {
     title = form.get("title");
     url = form.get("url");
 
+    const item1 = {
+      "title": title,
+      "url": url,
+    };
+    const itemsKey = ["items", title];
+    const ok = await kv.atomic().set(itemsKey, item1).commit();
+    if (!ok) throw new Error("Something went wrong.");
 
     return Response.json({title, url});
 
