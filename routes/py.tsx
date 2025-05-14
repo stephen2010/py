@@ -16,8 +16,8 @@ export const handler: Handlers = {
       "url": url,
     };
     const itemsKey = ["items", title];
-    const ok = await kv.atomic().set(itemsKey, item1).commit();
-    if (!ok) throw new Error("Something went wrong.");
+    await kv.atomic().set(itemsKey, item1).commit();
+//    if (!ok) throw new Error("Something went wrong.");
 
     return Response.json({title, url});
 
