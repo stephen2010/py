@@ -1,18 +1,6 @@
 import { defineRoute, Handlers } from "$fresh/server.ts";
 
-var title = "";
-var url = "";
-/*
-export const handler: Handlers = {
-  async POST(req, _ctx) {
-    const form = await req.formData();
-    title = form.get("title");
-    url = form.get("url");
 
-    return Response.json({title, url});
-  },
-};
-*/
 const SUBMIT_STYLES =
   "w-full text-white text-center rounded-[7px] transition duration-300 px-4 py-2 block hover:bg-white hover:text-black hover:dark:bg-gray-900 hover:dark:!text-white";
 
@@ -28,46 +16,7 @@ export default defineRoute(async (_req, _ctx) => {
           </p>
         </div>
         <div class="flex flex-col md:flex-row gap-8 md:gap-16 md:items-center">
-          <form class="flex-1 flex flex-col justify-center" method="post">
-            <div>
-              <label
-                htmlFor="submit_title"
-                class="block text-sm font-medium leading-6 text-gray-900"
-              >
-                {title}
-              </label>
 
-              <input
-                id="submit_title"
-                class="input-styles w-full mt-2"
-                type="text"
-                name="title"
-                required
-                placeholder="Title"
-              />
-            </div>
-
-            <div class="mt-4">
-              <label
-                htmlFor="submit_url"
-                class="block text-sm font-medium leading-6 text-gray-900"
-              >
-                {url}
-              </label>
-              <input
-                id="submit_url"
-                class="input-styles w-full mt-2"
-                type="text"
-                name="url"
-                required
-                placeholder="https://xxx.xxx.com"
-              />
-            </div>
-
-            <div class="w-full rounded-lg bg-gradient-to-tr from-secondary to-primary p-px mt-8">
-              {<button type="submit" class={SUBMIT_STYLES}>Submit</button>}
-            </div>
-          </form>
         </div>
       </main>
     </>
