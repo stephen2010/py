@@ -1,15 +1,11 @@
 import { defineRoute, Handlers } from "$fresh/server.ts";
-//import { STATUS_CODE } from "$std/http/status.ts";
 
-//import { Item, createItem, getItem, delItem } from "../utils/db.ts";
 interface Item {
   title: string;
   url: string;
 }
 
-
 const kv = await Deno.openKv();
-
 
 var title = "";
 var url = "";
@@ -24,20 +20,11 @@ export const handler: Handlers<Item | null> = {
       "title": title,
       "url": url,
     } as Item;
-//    await createItem(item1);
+/*
     const itemsKey = ["items", title];
     const ok = await kv.atomic().set(itemsKey, item1).commit();
     if (!ok) throw new Error("Something went wrong.");
-/*
-    return new Response(null, {
-      headers: {
-        location: "/py",
-      },
-      status: STATUS_CODE.SeeOther,
-    });
 */
-//    return new Response(JSON.stringify({title, url}));
-//    return Response.json({title, url});
     return Response.json(item1);
   },
 };
