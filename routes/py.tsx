@@ -6,8 +6,7 @@ const item1 = {
   "url": "url",
 };
 const itemsKey = ["items", "title"];
-await kv.atomic().set(itemsKey, item1).commit();
-//    if (!ok) throw new Error("Something went wrong.");
+await kv.set(itemsKey, item1);
 
 var title = "";
 var url = "";
