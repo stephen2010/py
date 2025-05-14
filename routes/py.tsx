@@ -1,11 +1,11 @@
 import { defineRoute, Handlers } from "$fresh/server.ts";
-
+/*
 interface Item {
   title: string;
   url: string;
 }
-
-const kv = await Deno.openKv();
+*/
+//const kv = await Deno.openKv();
 
 var title = "";
 var url = "";
@@ -19,7 +19,8 @@ export const handler: Handlers<Item | null> = {
     const item1 = {
       "title": title,
       "url": url,
-    } as Item;
+    }
+//    } as Item;
 /*
     const itemsKey = ["items", title];
     const ok = await kv.atomic().set(itemsKey, item1).commit();
