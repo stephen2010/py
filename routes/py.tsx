@@ -1,13 +1,5 @@
 import { defineRoute, Handlers } from "fresh/compat";
 
-const kv = await Deno.openKv();
-const item1 = {
-  "title": "title",
-  "url": "url",
-};
-const itemsKey = ["items", "title"];
-await kv.set(itemsKey, item1);
-
 var title = "";
 var url = "";
 
@@ -19,15 +11,13 @@ export const handler: Handlers = {
 
 
     return Response.json({title, url});
-
   },
 };
-
 
 const SUBMIT_STYLES =
   "w-full text-white text-center rounded-[7px] transition duration-300 px-4 py-2 block hover:bg-white hover:text-black hover:dark:bg-gray-900 hover:dark:!text-white";
 
-export default defineRoute(async (_req, _ctx) => {
+export default defineRoute(async (_ctx) => {
   return (
     <>
       <main class="flex-1 flex flex-col justify-center mx-auto w-full space-y-16 p-4 max-w-6xl">
