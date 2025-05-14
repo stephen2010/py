@@ -1,4 +1,4 @@
-import { defineRoute, Handlers } from "$fresh/server.ts";
+import { defineRoute, Handlers } from "fresh/server.ts";
 
 
 const SUBMIT_STYLES =
