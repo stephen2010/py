@@ -1,4 +1,5 @@
 import { defineRoute, Handlers } from "fresh/compat";
+import { STATUS_CODE } from "$std/http/status.ts";
 
 var title = "";
 var url = "";
@@ -9,8 +10,13 @@ export const handler: Handlers = {
     title = form.get("title");
     url = form.get("url");
 
-
-    return Response.json({title, url});
+    //    return Response.json({title, url});
+    return new Response(null, {
+      headers: {
+        location: "/py",
+      },
+      status: STATUS_CODE.SeeOther,
+    });
   },
 };
 
