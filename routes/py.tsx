@@ -1,5 +1,5 @@
 import { defineRoute, Handlers } from "fresh/compat";
-import { STATUS_CODE } from "$std/http/status.ts";
+import { STATUS_CODE } from "@std/http/status.ts";
 
 var title = "";
 var url = "";
