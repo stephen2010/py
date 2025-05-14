@@ -10,7 +10,7 @@ interface Item {
 var title = "";
 var url = "";
 
-export const handler: Handlers<Item | null> = {
+export const handler: Handlers = {
   async POST(req, _ctx) {
     const form = await req.formData();
     title = form.get("title");
@@ -20,13 +20,13 @@ export const handler: Handlers<Item | null> = {
       "title": title,
       "url": url,
     }
-//    } as Item;
 /*
     const itemsKey = ["items", title];
     const ok = await kv.atomic().set(itemsKey, item1).commit();
     if (!ok) throw new Error("Something went wrong.");
-*/
     return Response.json(item1);
+*/
+    return Response.json({title, url});
   },
 };
 
