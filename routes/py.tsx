@@ -63,7 +63,7 @@ export default defineRoute(async (_ctx) => {
               </label>
               <input
                 id="submit_url"
-                class="dark:bg-slate-700 input-styles w-full mt-2"
+                class="dark:bg-slate-700 dark:text-slate-400 input-styles w-full mt-2"
                 type="text"
                 name="url"
                 required
