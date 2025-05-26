@@ -15,7 +15,7 @@ export const handler: Handlers = {
       headers: {
         location: "/py",
       },
-      status: STATUS_CODE.SeeOther,
+     status: STATUS_CODE.SeeOther,
     });
   },
 };
@@ -28,8 +28,8 @@ export default defineRoute(async (_ctx) => {
     <>
       <main class="flex-1 flex flex-col justify-center mx-auto w-full space-y-16 p-4 max-w-6xl">
         <div class="text-center">
-          <h1 class="heading-styles">Share your project</h1>
-          <p class="text-gray-500">
+          <h1 class="dark:text-white heading-styles">Share your project</h1>
+          <p class="dark:text-slate-400 text-gray-500">
             Let the community know about your Deno-related blog post, video or
             module!
           </p>
@@ -39,14 +39,14 @@ export default defineRoute(async (_ctx) => {
             <div>
               <label
                 htmlFor="submit_title"
-                class="block text-sm font-medium leading-6 text-gray-900"
+                class="dark:text-slate-400 block text-sm font-medium leading-6 text-gray-900"
               >
                 {title}
               </label>
 
               <input
                 id="submit_title"
-                class="input-styles w-full mt-2"
+                class="dark:bg-slate-700 dark:text-slate-400 input-styles w-full mt-2"
                 type="text"
                 name="title"
                 required
@@ -57,13 +57,13 @@ export default defineRoute(async (_ctx) => {
             <div class="mt-4">
               <label
                 htmlFor="submit_url"
-                class="block text-sm font-medium leading-6 text-gray-900"
+                class="dark:text-slate-400 block text-sm font-medium leading-6 text-gray-900"
               >
                 {url}
               </label>
               <input
                 id="submit_url"
-                class="input-styles w-full mt-2"
+                class="dark:bg-slate-700 input-styles w-full mt-2"
                 type="text"
                 name="url"
                 required
