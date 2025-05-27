@@ -1,21 +1,28 @@
 import { defineRoute, Handlers } from "fresh/compat";
 import { STATUS_CODE } from "@std/http/status";
 
-var title = "";
-var url = "";
-
 export const handler: Handlers = {
   async POST(ctx) {
     const form = await ctx.req.formData();
-    title = form.get("title");
-    url = form.get("url");
+    const title = form.get("title");
+    const price = form.get("price");
 
-    //    return Response.json({title, url});
+    await fetch("https://apikv1.deno.dev/py", {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        "title": title,
+        "price": price,
+      }),
+    });
+    //    return Response.json({title, price});
     return new Response(null, {
       headers: {
         location: "/py",
       },
-     status: STATUS_CODE.SeeOther,
+      status: STATUS_CODE.SeeOther,
     });
   },
 };
@@ -24,6 +31,14 @@ const SUBMIT_STYLES =
   "w-full text-white text-center rounded-[7px] transition duration-300 px-4 py-2 block hover:bg-white hover:text-black hover:dark:bg-gray-900 hover:dark:!text-white";
 
 export default defineRoute(async (_ctx) => {
+  let title = "";
+  let price = "";
+  const res = await fetch("https://apikv1.deno.dev/py");
+  const jsontitleprice = await res.json();
+  if (jsontitleprice) {
+    title = jsontitleprice.title;
+    price = jsontitleprice.price;
+  }
   return (
     <>
       <main class="flex-1 flex flex-col justify-center mx-auto w-full space-y-16 p-4 max-w-6xl">
@@ -56,16 +71,16 @@ export default defineRoute(async (_ctx) => {
 
             <div class="mt-4">
               <label
-                htmlFor="submit_url"
+                htmlFor="submit_price"
                 class="dark:text-slate-400 block text-sm font-medium leading-6 text-gray-900"
               >
-                {url}
+                {price}
               </label>
               <input
-                id="submit_url"
+                id="submit_price"
                 class="dark:bg-slate-700 dark:text-slate-400 input-styles w-full mt-2"
                 type="text"
-                name="url"
+                name="price"
                 required
                 placeholder="https://xxx.xxx.com"
               />
